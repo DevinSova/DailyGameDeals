@@ -21,12 +21,15 @@ def valid_response(resp):
             and content_type is not None
             and content_type.find('html') > -1)
 
-def parse_ps4():
+def parse_platform(platform):
     raw_html = get_webpage('http://dailygamedeals.com/')
     html = BeautifulSoup(raw_html, 'html.parser')
-    for p in html.select('h1'):
-        if p['id'] == 'ps4':
-            return(p.text)
+    divTag = html.find_all("div", {"class": "entry-content"})
+
+    for tag in divTag:
+        ulTags = tag.find_all("ul")
+        for ul in ulTags:
+            print(ul.text)
 
 def log_error(e):
     print(e)
