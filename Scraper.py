@@ -36,7 +36,7 @@ def parse_platform(platform):
     print(h1.text)
     dealTable = h1.find_next_sibling("ul")
     for a in dealTable.find_all("a"):
-        print(a.text)
+        print("{0} | href={1}".format(a.text, a["href"]))
 
 def log_error(e):
     print(e)
