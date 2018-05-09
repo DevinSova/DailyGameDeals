@@ -1,6 +1,6 @@
 from scraper import parse_platform
 def main():
-    ps4 = parse_platform("ps4")
-    print(ps4)
-
+    parse_platform("PS4")
+    parse_platform("XBOX")
+    parse_platform("PC")
 main()
