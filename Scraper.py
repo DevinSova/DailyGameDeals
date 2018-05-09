@@ -21,22 +21,22 @@ def valid_response(resp):
             and content_type is not None
             and content_type.find('html') > -1)
 
-def parse_platform(platform):
-    num = platform_to_number(platform)
-    raw_html = get_webpage('http://dailygamedeals.com/')
-    html = BeautifulSoup(raw_html, 'html.parser')
-    divTag = html.find_all("div", {"class": "entry-content"})
-    ulTags = divTag[0].find_all("ul")
-    print(platform)
-    print(ulTags[num].text)
+"""
+Prints out deals for param platform in BitBar format
 
-def platform_to_number(platform):
-    return {
-            'PS4' : 0,
-            'XBOX' : 1,
-            'PC' : 2,
-            'OTHER' : 3,
-            }[platform]
+@param platform: name of platform
+    ["ps4, "xb1", "switch", "pc"]
+@return: nothing
+"""
+
+def parse_platform(platform):
+    raw_html = get_webpage("http://dailygamedeals.com/")
+    html = BeautifulSoup(raw_html, "html.parser")
+    h1 = html.find(id=platform)
+    print(h1.text)
+    dealTable = h1.find_next_sibling("ul")
+    for a in dealTable.find_all("a"):
+        print(a.text)
 
 def log_error(e):
     print(e)
