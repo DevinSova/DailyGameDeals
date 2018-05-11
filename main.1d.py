@@ -4,8 +4,8 @@
 # <bitbar.version>v1.0</bitbar.version>
 # <bitbar.author>Devin Sova</bitbar.author>
 # <bitbar.author.github>DevinSova</bitbar.author.github>
-# <bitbar.desc>Short description of what your plugin does.</bitbar.desc>
-# <bitbar.image>http://www.hosted-somewhere/pluginimage</bitbar.image>
+# <bitbar.desc>Simple Python BitBar plugin for Video Game Deals from http://dailygamedeals.com/</bitbar.desc>
+# <bitbar.image>https://d30y9cdsu7xlg0.cloudfront.net/png/20362-200.png</bitbar.image>
 # <bitbar.dependencies>python</bitbar.dependencies>
 # <bitbar.abouturl>http://url-to-about.com/</bitbar.abouturl>
 
