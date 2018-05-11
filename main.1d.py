@@ -40,21 +40,30 @@ Prints out deals for param platform in BitBar format
 @return: nothing
 """
 
-def parse_platform(platform):
+def print_platform(platform):
     raw_html = get_webpage("http://dailygamedeals.com/")
     html = BeautifulSoup(raw_html, "html.parser")
     h1 = html.find(id=platform)
+    print("---")
     print(h1.text)
     dealTable = h1.find_next_sibling("ul")
     for a in dealTable.find_all("a"):
         print("{0} | href={1}".format(a.text, a["href"]))
 
+def print_info():
+    print("---")
+    print("Deals from:")
+    print("http://dailygamedeals.com/ | href=http://dailygamedeals.com/")
+
 def log_error(e):
     print(e)
 
 def main():
-    parse_platform("ps4")
-    #parse_platform("xb1")
-    #parse_platform("pc")
+    print("DailyGameDeals") 
+    print_platform("ps4")
+    print_platform("xb1")
+    print_platform("switch")
+    print_platform("pc")
+    print_info()
 main()
 
